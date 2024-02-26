@@ -36,5 +36,5 @@
 		"smartbrainlib": ">=1.12",
 		"azurelib": ">=2.0.3"
 	},
-	"accessWidener": "darkwaters.accesswidener"
+	"accessWidener": "accesstransformer.cfg"
 }
