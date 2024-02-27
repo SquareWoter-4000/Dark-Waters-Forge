@@ -85,8 +85,6 @@ repositories {
     maven { url "https://dl.cloudsmith.io/public/tslat/sbl/maven/" }
     maven { url "https://maven.shedaniel.me/" }
     maven { url "https://plugins.gradle.org/m2/" }
-    maven { url "https://api.modrinth.com/maven" }
-    maven { url "https://maven.terraformersmc.com" }
     maven { url "https://maven.parchmentmc.org" }
 	maven {
 		name = "SmartBrainLib (SBL) Maven Repo"
@@ -96,13 +94,13 @@ repositories {
 
 dependencies {
 	minecraft "net.neoforged:forge:${project.minecraft_version}-${neo_version}"
+	annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 
   	implementation fg.deobf("mod.azure.azurelib:azurelib-neo-${project.minecraft_version}:${project.azurelibVersion}")
-	implementation fg.deobf("com.terraformersmc:modmenu:${project.modmenuVersion}")
 	implementation fg.deobf("net.tslat.smartbrainlib:SmartBrainLib-forge-${project.minecraft_version}:${project.sbl_version}")
-	implementation fg.deobf("net.tslat.smartbrainlib:SmartBrainLib-common-${project.minecraft_version}:${project.sblVersion}")
+	implementation fg.deobf("net.tslat.smartbrainlib:SmartBrainLib-common-${project.minecraft_version}:${project.sbl_version}")
 	implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:0.2.1"))
-	annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
+
 
 
 }
