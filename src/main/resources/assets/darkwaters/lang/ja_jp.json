@@ -41,5 +41,11 @@
 	"config.darkwaters.option.sighthunter_exp": "Ã£â€šÂµÃ£â€šÂ¤Ã£Æ’Ë†Ã£Æ’ï¿½Ã£Æ’Â³Ã£â€šÂ¿Ã£Æ’Â¼Ã£ï¿½Â®Ã§ÂµÅ’Ã©Â¨â€œÃ¥â‚¬Â¤",
 	"config.darkwaters.option.manaraw_health": "Ã£Æ’Å¾Ã£Æ’Å Ã£Æ’Â­Ã£â€šÂ¦Ã£ï¿½Â®Ã¤Â½â€œÃ¥Å â€º",
 	"config.darkwaters.option.manaraw_attack_damage": "Ã£Æ’Å¾Ã£Æ’Å Ã£Æ’Â­Ã£â€šÂ¦Ã£ï¿½Â®Ã¦â€�Â»Ã¦â€™Æ’Ã¥Å â€º",
-	"config.darkwaters.option.manaraw_exp": "Ã£Æ’Å¾Ã£Æ’Å Ã£Æ’Â­Ã£â€šÂ¦Ã£ï¿½Â®Ã§ÂµÅ’Ã©Â¨â€œÃ¥â‚¬Â¤"
+	"config.darkwaters.option.manaraw_exp": "Ã£Æ’Å¾Ã£Æ’Å Ã£Æ’Â­Ã£â€šÂ¦Ã£ï¿½Â®Ã§ÂµÅ’Ã©Â¨â€œÃ¥â‚¬Â¤",
+	"config.darkwaters.option.aberrationconfigs": "Aberration Configs",
+	"config.darkwaters.option.craekenconfigs": "Craeken Configs",
+	"config.darkwaters.option.manarawconfigs": "Manaraw Configs",
+	"config.darkwaters.option.miraidconfigs": "Miraid Configs",
+	"config.darkwaters.option.mohastconfigs": "Mohast Configs",
+	"config.darkwaters.option.slighthunterconfigs": "Slight Hunter Configs"
 }
