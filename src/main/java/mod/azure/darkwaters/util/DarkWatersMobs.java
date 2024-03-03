@@ -1,53 +1,62 @@
 package mod.azure.darkwaters.util;
 
 import mod.azure.darkwaters.DarkWatersMod;
-import mod.azure.darkwaters.entity.AberrationEntity;
-import mod.azure.darkwaters.entity.CraekenEntity;
-import mod.azure.darkwaters.entity.ManarawEntity;
-import mod.azure.darkwaters.entity.MiraidEntity;
-import mod.azure.darkwaters.entity.MiraidHallucinationEntity;
-import mod.azure.darkwaters.entity.MohastEntity;
-import mod.azure.darkwaters.entity.SightHunterEntity;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityDimensions;
+import mod.azure.darkwaters.entity.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
+@Mod.EventBusSubscriber(modid = DarkWatersMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DarkWatersMobs {
+	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, DarkWatersMod.MODID);
+	public static final RegistryObject<EntityType<AberrationEntity>> ABERRATION = ENTITY_TYPES.register("aberration",
+			() -> EntityType.Builder.of(AberrationEntity::new, MobCategory.AMBIENT).fireImmune().sized(0.9f, 2.05F).clientTrackingRange(90).build("aberration"));
 
-	public static EntityType<AberrationEntity> ABERRATION;
-	public static EntityType<ManarawEntity> MANARAW;
-	public static EntityType<MohastEntity> MOHAST;
-	public static EntityType<SightHunterEntity> SIGHT_HUNTER;
-	public static EntityType<CraekenEntity> CRAEKEN;
-	public static EntityType<MiraidEntity> MIRAID;
-	public static EntityType<MiraidHallucinationEntity> MIRAID_HALLUCINATION;
+	public static final RegistryObject<EntityType<ManarawEntity>> MANARAW = ENTITY_TYPES.register("manaraw",
+			() -> EntityType.Builder.of(ManarawEntity::new, MobCategory.AMBIENT).fireImmune().sized(3.6f, 3.95F).clientTrackingRange(90).build("manaraw"));
 
-	private static <T extends Entity> EntityType<T> mob(String id, EntityType.EntityFactory<T> factory, float height, float width) {
-		final var type = FabricEntityTypeBuilder.<T>create(MobCategory.AMBIENT, factory).dimensions(EntityDimensions.scalable(height, width)).fireImmune().trackedUpdateRate(1).trackRangeBlocks(90).build();
-		Registry.register(BuiltInRegistries.ENTITY_TYPE, DarkWatersMod.modResource(id), type);
+	public static final RegistryObject<EntityType<MohastEntity>> MOHAST = ENTITY_TYPES.register("mohast",
+			() -> EntityType.Builder.of(MohastEntity::new, MobCategory.AMBIENT).fireImmune().sized(2.2f, 0.65F).clientTrackingRange(90).build("mohast"));
 
-		return type;
+	public static final RegistryObject<EntityType<SightHunterEntity>> SIGHT_HUNTER = ENTITY_TYPES.register("sight_hunter",
+			() -> EntityType.Builder.of(SightHunterEntity::new, MobCategory.AMBIENT).fireImmune().sized(4.6f, 1.45F).clientTrackingRange(90).build("sight_hunter"));
+
+	public static final RegistryObject<EntityType<CraekenEntity>> CRAEKEN = ENTITY_TYPES.register("craeken",
+			() -> EntityType.Builder.of(CraekenEntity::new, MobCategory.AMBIENT).fireImmune().sized(4.6f, 1.95F).clientTrackingRange(90).build("craeken"));
+
+	public static final RegistryObject<EntityType<MiraidEntity>> MIRAID = ENTITY_TYPES.register("miraid",
+			() -> EntityType.Builder.of(MiraidEntity::new, MobCategory.AMBIENT).fireImmune().sized(4.6f, 2.95F).clientTrackingRange(90).build("miraid"));
+	public static final RegistryObject<EntityType<MiraidHallucinationEntity>> MIRAID_HALLUCINATION = ENTITY_TYPES.register("miraid_hallucination",
+			() -> EntityType.Builder.of(MiraidHallucinationEntity::new, MobCategory.AMBIENT).fireImmune().sized(1.6f, 3.45F).clientTrackingRange(90).build("miraid_hallucination"));
+
+	@SubscribeEvent
+	public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
+		event.register(ABERRATION.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BaseWaterEntity::canSpawnInDarkWater, SpawnPlacementRegisterEvent.Operation.OR);
+		event.register(CRAEKEN.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BaseWaterEntity::canSpawnInDarkWater, SpawnPlacementRegisterEvent.Operation.OR);
+		event.register(MIRAID.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BaseWaterEntity::canSpawnInDarkWater, SpawnPlacementRegisterEvent.Operation.OR);
+		event.register(MIRAID_HALLUCINATION.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BaseWaterEntity::canSpawnInDarkWater, SpawnPlacementRegisterEvent.Operation.OR);
+		event.register(MOHAST.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BaseWaterEntity::canSpawnInDarkWater, SpawnPlacementRegisterEvent.Operation.OR);
+		event.register(SIGHT_HUNTER.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BaseWaterEntity::canSpawnInDarkWater, SpawnPlacementRegisterEvent.Operation.OR);
+		event.register(MANARAW.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BaseWaterEntity::canSpawnInDarkWater, SpawnPlacementRegisterEvent.Operation.OR);
 	}
 
-	public static void init() {
-		ABERRATION = mob("aberration", AberrationEntity::new, 0.9f, 2.05F);
-		MANARAW = mob("manaraw", ManarawEntity::new, 3.6f, 3.95F);
-		MOHAST = mob("mohast", MohastEntity::new, 2.2f, 0.65F);
-		SIGHT_HUNTER = mob("sight_hunter", SightHunterEntity::new, 4.6f, 1.45F);
-		CRAEKEN = mob("craeken", CraekenEntity::new, 4.6f, 1.95F);
-		MIRAID = mob("miraid", MiraidEntity::new, 4.6f, 2.95F);
-		MIRAID_HALLUCINATION = mob("miraid_hallucination", MiraidHallucinationEntity::new, 1.6f, 3.45F);
-		FabricDefaultAttributeRegistry.register(ABERRATION, AberrationEntity.createMobAttributes());
-		FabricDefaultAttributeRegistry.register(MANARAW, ManarawEntity.createMobAttributes());
-		FabricDefaultAttributeRegistry.register(MOHAST, MohastEntity.createMobAttributes());
-		FabricDefaultAttributeRegistry.register(SIGHT_HUNTER, SightHunterEntity.createMobAttributes());
-		FabricDefaultAttributeRegistry.register(CRAEKEN, CraekenEntity.createMobAttributes());
-		FabricDefaultAttributeRegistry.register(MIRAID, MiraidEntity.createMobAttributes());
-		FabricDefaultAttributeRegistry.register(MIRAID_HALLUCINATION, MiraidHallucinationEntity.createMobAttributes());
+
+	@SubscribeEvent
+	public static void registerEntityAttributes(EntityAttributeCreationEvent event) {
+		event.put(ABERRATION.get(), AberrationEntity.createMobAttributes().build());
+		event.put(MANARAW.get(), ManarawEntity.createMobAttributes().build());
+		event.put(CRAEKEN.get(), CraekenEntity.createMobAttributes().build());
+		event.put(MIRAID.get(), MiraidEntity.createMobAttributes().build());
+		event.put(MOHAST.get(), MohastEntity.createMobAttributes().build());
+		event.put(MIRAID_HALLUCINATION.get(), MiraidHallucinationEntity.createMobAttributes().build());
+		event.put(SIGHT_HUNTER.get(), SightHunterEntity.createMobAttributes().build());
 	}
 }

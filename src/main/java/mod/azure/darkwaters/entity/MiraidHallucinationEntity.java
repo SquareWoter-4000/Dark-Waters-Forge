@@ -45,7 +45,7 @@ public class MiraidHallucinationEntity extends BaseWaterEntity implements GeoEnt
 
 	@Override
 	protected SoundEvent getAmbientSound() {
-		return DarkWatersSounds.MIRAD_HUM;
+		return DarkWatersSounds.MIRAD_HUM.get();
 	}
 
 	@Override
@@ -55,19 +55,19 @@ public class MiraidHallucinationEntity extends BaseWaterEntity implements GeoEnt
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource source) {
-		return DarkWatersSounds.MIRAD_HURT;
+		return DarkWatersSounds.MIRAD_HURT.get();
 	}
 
 	@Override
 	public void tick() {
 		super.tick();
 		final var aabb = new AABB(this.blockPosition().above()).inflate(64D, 64D, 64D);
-		this.getCommandSenderWorld().getEntities(this, aabb).forEach(e -> {
-			if (!(e instanceof MiraidEntity))
-				this.kill();
-			if (e instanceof MiraidEntity)
-				this.setTextureState(((MiraidEntity) e).isAggressive() ? true : false);
-		});
+		var entities = this.getCommandSenderWorld().getEntities(this, aabb);
+
+		if (entities.stream().anyMatch(e -> e instanceof MiraidEntity)) {
+			this.setTextureState(((MiraidEntity) entities.stream().filter(e -> e instanceof MiraidEntity).findFirst().get()).isAggressive());
+		}
+		else this.setTextureState(false);
 	}
 
 }

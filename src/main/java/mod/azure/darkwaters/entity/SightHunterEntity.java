@@ -138,7 +138,7 @@ public class SightHunterEntity extends BaseWaterEntity implements GeoEntity, Sma
 
 	@Override
 	protected SoundEvent getAmbientSound() {
-		return this.getRandom().nextInt(0, 3) == 1 ? DarkWatersSounds.SLIGHTHUNTER_AMBIENT1 : DarkWatersSounds.SLIGHTHUNTER_AMBIENT2;
+		return this.getRandom().nextInt(0, 3) == 1 ? DarkWatersSounds.SLIGHTHUNTER_AMBIENT1.get() : DarkWatersSounds.SLIGHTHUNTER_AMBIENT2.get();
 	}
 
 	@Override
@@ -148,7 +148,7 @@ public class SightHunterEntity extends BaseWaterEntity implements GeoEntity, Sma
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource source) {
-		return DarkWatersSounds.SLIGHTHUNTER_ATTACK_HURT;
+		return DarkWatersSounds.SLIGHTHUNTER_ATTACK_HURT.get();
 	}
 
 }

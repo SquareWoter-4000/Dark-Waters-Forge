@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import mod.azure.darkwaters.DarkWatersMod;
 import mod.azure.darkwaters.util.DarkWatersSounds;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
+//import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -24,7 +24,7 @@ import net.minecraft.world.level.Level;
 public abstract class StormMixin extends LivingEntity {
 
 	protected int cooldown = 0;
-	protected BiomeSelectionContext biome;
+	//protected BiomeSelectionContext biome;
 	@Shadow
 	private final Abilities abilities = new Abilities();
 
@@ -43,8 +43,8 @@ public abstract class StormMixin extends LivingEntity {
 			if (this.cooldown == 5) {
 				if (!this.isSilent()) {
 					this.level().playSound((Player) null, this.getX(), this.getY(), this.getZ(),
-							r == 1 ? DarkWatersSounds.STORM_ABIENT1
-									: r == 2 ? DarkWatersSounds.STORM_ABIENT2 : DarkWatersSounds.STORM_ABIENT3,
+							r == 1 ? DarkWatersSounds.STORM_ABIENT1.get()
+									: r == 2 ? DarkWatersSounds.STORM_ABIENT2.get() : DarkWatersSounds.STORM_ABIENT3.get(),
 							SoundSource.MUSIC, level().isThundering() ? 0.75F : 0.0F, 1.0F);
 				}
 				this.cooldown = -500;

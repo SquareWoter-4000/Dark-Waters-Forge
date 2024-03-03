@@ -145,7 +145,7 @@ public class MiraidEntity extends BaseWaterEntity implements GeoEntity, SmartBra
 
 	@Override
 	protected SoundEvent getAmbientSound() {
-		return DarkWatersSounds.MIRAD_AMBIENT;
+		return DarkWatersSounds.MIRAD_AMBIENT.get();
 	}
 
 	@Override
@@ -155,7 +155,7 @@ public class MiraidEntity extends BaseWaterEntity implements GeoEntity, SmartBra
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource source) {
-		return DarkWatersSounds.MIRAD_HURT;
+		return DarkWatersSounds.MIRAD_HURT.get();
 	}
 
 }

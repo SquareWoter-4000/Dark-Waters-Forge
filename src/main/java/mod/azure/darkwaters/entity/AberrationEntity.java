@@ -151,7 +151,7 @@ public class AberrationEntity extends BaseWaterEntity implements GeoEntity, Smar
 
 	@Override
 	protected SoundEvent getAmbientSound() {
-		return DarkWatersSounds.ABBERATION_AMBIENT;
+		return DarkWatersSounds.ABBERATION_AMBIENT.get();
 	}
 
 	@Override
@@ -161,7 +161,7 @@ public class AberrationEntity extends BaseWaterEntity implements GeoEntity, Smar
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource source) {
-		return DarkWatersSounds.ABBERATION_HURT;
+		return DarkWatersSounds.ABBERATION_HURT.get();
 	}
 
 }

@@ -1,29 +1,29 @@
 modLoader="javafml"
 loaderVersion="${loader_version_range}"
-issueTrackerURL="${mod_issues}"
-license="${mod_license}"
+issueTrackerURL="https://github.com/AzureDoom/Dark-Waters/issues"
+license="MIT"
 [[mods]]
-modId="${mod_id}"
+modId="darkwaters"
 version="${mod_version}"
-displayName="${mod_name}"
-displayURL="${mod_url}"
-logoFile="${mod_logo}"
-credits="${mod_credits}"
-authors="${mod_credits}"
-description='''${mod_description}'''
-[[dependencies.${mod_id}]]
+displayName="Dark Waters"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/dark-waters"
+logoFile="assets/darkwaters/icon.png"
+credits="AzureDoom, Batpixxler, Assasingus14"
+authors="AzureDoom, Batpixxler, Assasingus14"
+description='''If you hear the thunder....it's already too late.'''
+[[dependencies.darkwaters]]
     modId="forge"
     mandatory=true
-    versionRange="${neo_version_range}"
+    versionRange="${forge_version_range}"
     ordering="NONE"
     side="BOTH"
-[[dependencies.${mod_id}]]
+[[dependencies.darkwaters]]
     modId="minecraft"
     mandatory=true
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
-[[dependencies.${mod_id}]]
+[[dependencies.darkwaters]]
     modId="azurelib"
     mandatory=true
     versionRange="[2.0.11,)"

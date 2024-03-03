@@ -136,7 +136,7 @@ public class ManarawEntity extends BaseWaterEntity implements GeoEntity, SmartBr
 
 	@Override
 	protected SoundEvent getAmbientSound() {
-		return this.getRandom().nextInt(0, 3) == 1 ? DarkWatersSounds.MANARAW_AMBIENT1 : DarkWatersSounds.MANARAW_AMBIENT2;
+		return this.getRandom().nextInt(0, 3) == 1 ? DarkWatersSounds.MANARAW_AMBIENT1.get() : DarkWatersSounds.MANARAW_AMBIENT2.get();
 	}
 
 	@Override
@@ -146,7 +146,7 @@ public class ManarawEntity extends BaseWaterEntity implements GeoEntity, SmartBr
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource source) {
-		return DarkWatersSounds.MANARAW_HURT;
+		return DarkWatersSounds.MANARAW_HURT.get();
 	}
 
 }

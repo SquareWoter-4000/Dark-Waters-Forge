@@ -15,10 +15,10 @@ public class DarkWatersConfig {
     public AberrationConfigs aberrationconfigs = new AberrationConfigs();
 
     public static class AberrationConfigs {
-    	@Configurable
-    	@Configurable.Synchronized
-    	@Configurable.Range(min = 1)
-    	public int aberration_spawnweight = 10;
+    	// @Configurable
+    	// @Configurable.Synchronized
+    	// @Configurable.Range(min = 1)
+    	// public int aberration_spawnweight = 10;
 
     	@Configurable
     	@Configurable.Synchronized
@@ -40,10 +40,10 @@ public class DarkWatersConfig {
     public CraekenConfigs craekenconfigs = new CraekenConfigs();
 
     public static class CraekenConfigs {
-    	@Configurable
-    	@Configurable.Synchronized
-    	@Configurable.Range(min = 1)
-    	public int craeken_spawnweight = 1;
+    	// @Configurable
+    	// @Configurable.Synchronized
+    	// @Configurable.Range(min = 1)
+    	// public int craeken_spawnweight = 1;
 
     	@Configurable
     	@Configurable.Synchronized
@@ -65,10 +65,10 @@ public class DarkWatersConfig {
     public ManarawConfigs manarawconfigs = new ManarawConfigs();
 
     public static class ManarawConfigs {
-    	@Configurable
-    	@Configurable.Synchronized
-    	@Configurable.Range(min = 1)
-    	public int manaraw_spawnweight = 1;
+//    	@Configurable
+//    	@Configurable.Synchronized
+//    	@Configurable.Range(min = 1)
+//    	public int manaraw_spawnweight = 1;
 
     	@Configurable
     	@Configurable.Synchronized
@@ -90,10 +90,10 @@ public class DarkWatersConfig {
     public MiraidConfigs miraidconfigs = new MiraidConfigs();
 
     public static class MiraidConfigs {
-    	@Configurable
-    	@Configurable.Synchronized
-    	@Configurable.Range(min = 1)
-    	public int miraid_spawnweight = 1;
+//    	@Configurable
+//    	@Configurable.Synchronized
+//    	@Configurable.Range(min = 1)
+//    	public int miraid_spawnweight = 1;
 
     	@Configurable
     	@Configurable.Synchronized
@@ -116,10 +116,10 @@ public class DarkWatersConfig {
     public MohastConfigs mohastconfigs = new MohastConfigs();
 
     public static class MohastConfigs {
-    	@Configurable
-    	@Configurable.Synchronized
-    	@Configurable.Range(min = 1)
-    	public int mohast_spawnweight = 10;
+//    	@Configurable
+//    	@Configurable.Synchronized
+//    	@Configurable.Range(min = 1)
+//    	public int mohast_spawnweight = 10;
 
     	@Configurable
     	@Configurable.Synchronized
@@ -141,10 +141,10 @@ public class DarkWatersConfig {
     public SlighthunterConfigs slighthunterconfigs = new SlighthunterConfigs();
 
     public static class SlighthunterConfigs {
-    	@Configurable
-    	@Configurable.Synchronized
-    	@Configurable.Range(min = 1)
-    	public int sighthunter_spawnweight = 1;
+//    	@Configurable
+//    	@Configurable.Synchronized
+//    	@Configurable.Range(min = 1)
+//    	public int sighthunter_spawnweight = 1;
 
     	@Configurable
     	@Configurable.Synchronized
